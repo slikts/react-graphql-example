@@ -1,0 +1,55 @@
+{
+  "name": "react-graphql-example-apollo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/graphql": "^14.0.3",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.15",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
+    "apollo-link": "^1.2.6",
+    "apollo-link-rest": "^0.7.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "graphql": "^14.0.2",
+    "graphql-anywhere": "^4.1.23",
+    "graphql-tools": "^4.0.3",
+    "react": "^16.6.3",
+    "react-apollo": "^2.3.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1",
+    "react-test-renderer": "^16.6.3",
+    "typescript": "^3.2.2",
+    "typestyle": "^2.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:watch": "react-scripts test -- --coverage --watch",
+    "eject": "react-scripts eject",
+    "lint": "tslint --project tsconfig.json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "husky": "^1.3.0",
+    "jest-fetch-mock": "^2.1.0",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0"
+  }
+}
