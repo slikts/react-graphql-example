@@ -11,12 +11,9 @@ class Dialog extends React.Component<Props, { open: boolean }> {
     dismissLabel: "Close",
   };
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      open: true,
-    };
-  }
+  state = {
+    open: true,
+  };
 
   render() {
     return (

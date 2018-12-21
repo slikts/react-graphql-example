@@ -1,15 +1,17 @@
 import { NetworkStatus } from "apollo-client";
+import { addDays } from "date-fns";
 import gql from "graphql-tag";
 import React from "react";
 import { Query } from "react-apollo";
+import { isoDate } from "../util";
 import Button from "./Button";
 import Error from "./Error";
 import Loading from "./Loading";
 import RatesTable from "./RatesTable";
 
 const GET_LATEST = gql`
-  {
-    data @rest(type: "RatePayload", path: "latest") {
+  query Latest($date: String = "latest") {
+    data(date: $date) @rest(type: "RatePayload", path: "{args.date}") {
       date
       base
       rates
@@ -20,6 +22,9 @@ const GET_LATEST = gql`
 const Rates = () => (
   <Query
     query={GET_LATEST}
+    variables={{
+      date: "latest",
+    }}
     fetchPolicy="cache-and-network"
     notifyOnNetworkStatusChange
   >
@@ -39,6 +44,18 @@ const Rates = () => (
       return (
         <div>
           <p>
+            <Button
+              text="Previous"
+              onClick={() =>
+                refetch({ date: isoDate(addDays(new Date(data.data.date), -1)) })
+              }
+            />
+            <Button
+              text="Next"
+              onClick={() =>
+                refetch({ date: isoDate(addDays(new Date(data.data.date), 1)) })
+              }
+            />
             <Button text="Refresh" onClick={() => refetch()} />
           </p>
           <RatesTable payload={data} />
